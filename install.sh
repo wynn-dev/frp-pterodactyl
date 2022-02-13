@@ -16,6 +16,6 @@ else
     curl -sSLo config.ini https://raw.githubusercontent.com/wynn-dev/frp-pterodactyl/main/bin/config.ini
     echo "Installing FRP server"
     touch installed
-    echo "Starting PteroVM"
+    echo "Starting FRP server"
     ./frps -c ./config.ini
 fi
