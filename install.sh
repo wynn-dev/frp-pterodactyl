@@ -14,6 +14,7 @@ else
     echo "Downloading files FRP server"
     curl -sSLo frps https://github.com/wynn-dev/frp-pterodactyl/raw/main/bin/frps
     curl -sSLo config.ini https://raw.githubusercontent.com/wynn-dev/frp-pterodactyl/main/bin/config.ini
+    chmod u+x frps
     echo "Installing FRP server"
     touch installed
     echo "Starting FRP server"
