@@ -1,0 +1,41 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2022-05-05T06:52:36-04:00",
+    "name": "FRP server",
+    "author": "209275660@qq.com",
+    "description": null,
+    "features": null,
+    "images": [
+        "ghcr.io\/pterodactyl\/yolks:debian"
+    ],
+    "file_denylist": [],
+    "startup": ".\/frps --bind_port {{SERVER_PORT}} --token \"{{TOKEN}}\"",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"frps started successfully\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\ncd \/mnt\/server\r\n\r\n    curl -sSLo frps https:\/\/github.com\/wynn-dev\/frp-pterodactyl\/raw\/main\/bin\/frps\r\n    chmod u+x frps",
+            "container": "ghcr.io\/pterodactyl\/installers:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Token",
+            "description": "Auth token",
+            "env_variable": "TOKEN",
+            "default_value": "changeme",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        }
+    ]
+}
